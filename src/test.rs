@@ -96,7 +96,7 @@ pub fn test_id_token() {
         .expect("id token should be valid");
     assert_eq!(id_token.get_claims().get_audience(), AUDIENCE);
     assert_eq!(id_token.get_payload().get_domain(), None);
-    assert_eq!(id_token.get_payload().get_email(), "fuchsnj@gmail.com");
+    assert_eq!(id_token.get_payload().get_email(), Some("fuchsnj@gmail.com".to_string()));
 }
 
 #[cfg(feature = "async")]
@@ -148,5 +148,5 @@ async fn test_id_token_async() {
         .expect("id token should be valid");
     assert_eq!(id_token.get_claims().get_audience(), AUDIENCE);
     assert_eq!(id_token.get_payload().get_domain(), None);
-    assert_eq!(id_token.get_payload().get_email(), "fuchsnj@gmail.com");
+    assert_eq!(id_token.get_payload().get_email(), Some("fuchsnj@gmail.com".to_string()));
 }
